@@ -1,0 +1,935 @@
+/* GENERAL STYLING */
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+/* Add this to your existing CSS */
+
+:root {
+    --bg-color: #f2f3f7;
+    --text-color: #ffff;
+}
+
+[data-theme="dark"] {
+    --bg-color: #0A0A0F;
+    --text-color: #ffffff;
+}
+
+body {
+    margin: 0;
+    margin-left: 25%;
+    width: 75%;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* body {
+    margin: 0;
+    margin-left: 25%;
+    width: 75%;
+    font-family: Arial, sans-serif;
+    background-color: #f2f3f7;
+    overflow-x: hidden;
+} */
+
+/* Mobile Header (Logo + Menu Toggle) */
+.mobile-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: #0D47A1;
+    z-index: 900;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.mobile-logo {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    order: 1; /* Logo first (left) */
+}
+
+.menu-toggle {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 8px;
+    transition: transform 0.3s ease;
+    order: 2; /* Menu toggle second (right) */
+}
+
+.menu-toggle:active {
+    transform: scale(0.9);
+}
+
+/* Sidebar */
+aside {
+    width: 25%;
+    background: #0D47A1;
+    /* background-color: #3B82F6; */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    overflow-y: hidden;
+    animation: asideFadeInLeft 1s ease-out 1;
+    z-index: 1000;
+}
+
+@keyframes asideFadeInLeft{
+    0%{
+        transform: translateX(-25%);
+        opacity: 0.6;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Close button (hidden on desktop) */
+.close-menu {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.363);
+    color: white;
+    border: 2px solid white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.close-menu:hover {
+    background: rgba(255, 255, 255, 0.418);
+}
+
+aside header {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+aside header nav:first-of-type a {
+    text-decoration: none;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: bold;
+    color: white;
+}
+
+aside header nav:nth-of-type(2) {
+    list-style: none;
+    padding: 1px;
+    height: auto;
+    min-height: 60vh;
+    display: flex;
+    align-content: space-around;
+    align-items: left;
+    flex-direction: column;
+    gap: 40px;
+}
+
+aside header nav:nth-of-type(2) li a {
+    text-decoration: none;
+    color: white;
+    padding: 12px 15px;
+    border-radius:15px;
+    border: none;
+    transition: background-color 0.3s, left 0.3s, border 0.3s, color 0.3s;
+    width: 100%;
+    max-width: 300px;
+    font-size: 1.25rem;
+    white-space: nowrap;
+    position: relative;
+    left: 0;
+}
+
+aside header nav:nth-of-type(2) li a:hover {
+    background-color: rgba(255, 255, 255, 0.219);
+    border: 2px solid #f2f3f7;
+    left: 40px;
+    color: white;
+}
+
+aside header nav:nth-of-type(3) {
+    font-size: 0.9rem;
+    margin-top: auto;
+    padding-top: 50px;
+}
+
+aside nav li a span i{
+    margin-right: 15px;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+}
+
+aside header nav:nth-of-type(3) p{
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    font-style: italic;
+    font-weight: bold;
+}
+
+aside header nav:nth-of-type(3) a {
+    color: white;
+    text-decoration: underline;
+    margin-left: 5px;
+}
+
+aside header nav:nth-of-type(3) input[type="checkbox"] {
+    margin-right: 5px;
+    margin-top: 25px;
+    font-size: 1rem;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 80vh;
+    background: #fafafa;
+    overflow: hidden;
+    padding: 3rem;
+    width: 100%;
+}
+
+/* Decorative elements */
+.deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.deco1 {
+    width: 100px;
+    height: 100px;
+    background: #0D47A1;
+    top: 10%;
+    right: 15%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.deco2 {
+    width: 60px;
+    height: 60px;
+    background: #558de7;
+    top: 2%;
+    right: 2%;
+    animation: float 8s ease-in-out infinite 1s;
+}
+
+.deco3 {
+    width: 80px;
+    height: 80px;
+    background: #3B82F6;
+    bottom: 30%;
+    left: 2%;
+    animation: float 7s ease-in-out infinite 2s;
+}
+
+.deco4{
+    width: 90px;
+    height: 80px;
+    background: #3B82F6;
+    top: 15%;
+    left: 45%;
+    animation: float 7s ease-in-out infinite 2s;
+}
+
+.star {
+    position: absolute;
+    color: #3B82F6;
+    font-size: 2rem;
+    top: 3%;
+    right: 5%;
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px);
+    }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.hero-content {
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-text {
+    animation: fadeInLeft 1s ease-out;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hero-text .subtitle {
+    color: #1976D2;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.3px;
+}
+
+.hero-text h1 {
+    font-size: 3.2rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.hero-text h1 .highlight {
+    color: #1976D2;
+}
+
+.hero-text p {
+    font-size: 1.05rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.cta-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.btn-primary {
+    padding: 1rem 2rem;
+    background: #1976D2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary:hover {
+    background: #2a68cc;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 1.2rem;
+}
+
+.rating-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.hero-image {
+    position: relative;
+    animation: heroImage 20s ease-out infinite;
+    border-radius: 55px;
+    background-image: url(/img/digimark2.jpg);
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    width: 100%;
+    height: 50vh;
+}
+
+@keyframes heroImage {
+    0%{
+        background-image: url(img/digimark2.jpg);
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: cover;
+    }
+    25%{
+        background-image: url(img/digimark1.jpg);
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: cover;
+    }
+    50%{
+        background-image: url(img/education.jpg);
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: cover;
+    }
+    75%{
+        background-image: url(img/social\ media\ marketing.jpg);
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: cover;
+    }
+    100%{
+        background-image: url(img/digimark2.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+.image-container {
+    position: relative;
+    text-align: center;
+}
+
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-card {
+    position: relative;
+    background: #f2f3f7;
+    padding: 1rem;
+    padding-top: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    background: #1976D2;
+}
+
+.feature-icon {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    padding: 1.5rem;
+    background: #1976D2;
+    border-radius: 0 0 0 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+    color:#f2f3f7;
+}
+
+.feature-card:hover .feature-icon {
+    background: #f2f3f7;
+    color: #1976D2;
+}
+
+.feature-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+}
+
+.feature-card:hover h3 {
+    color: #fff;
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+.feature-card:hover p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Overlay for mobile menu */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 1024px) {
+    /* Show mobile header */
+    .mobile-header {
+        display: flex;
+    }
+
+    /* Hide sidebar by default on mobile */
+    aside {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        width: 80%;
+        max-width: 350px;
+        animation: none;
+    }
+    body{
+        margin: 0;
+        width: 100%;
+    }
+
+    /* Show close button on mobile */
+    aside .close-menu {
+        display: block;
+        margin-left: -3px;
+        border: none;
+        border-radius: 50%;
+        padding: 10px;
+    }
+
+    /* When menu is active */
+    aside.active {
+        transform: translateX(0);
+    }
+
+    /* Adjust hero section */
+    .hero {
+        margin-left: 0;
+        width: 100%;
+        padding: 90px 2rem 2rem;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.8rem;
+    }
+
+    .cta-section {
+        justify-content: center;
+    }
+
+    .feature-cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* Prevent scrolling when menu is open */
+    body.menu-open {
+        overflow: scroll;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-logo {
+        font-size: 1.5rem;
+    }
+
+    .menu-toggle {
+        font-size: 1.5rem;
+    }
+
+    aside {
+        width: 85%;
+        max-width: 300px;
+    }
+
+    .hero {
+        margin-top: 1.5rem;
+        padding: 80px 1.5rem 2rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .cta-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    aside header nav:first-of-type a {
+        font-size: 1.5rem;
+    }
+
+    aside header nav:nth-of-type(2) li a {
+        font-size: 1.1rem;
+        width: 100%;
+    }
+}
+
+.stats-section {
+    background: #1976D2;
+    padding: 40px 50px;
+    margin: 30px 50px;
+    max-width: 100%; /* 75% of screen minus margins */
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.219);
+    border-color: 5px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card:hover::before {
+    opacity: 1;
+}
+
+.stat-icon {
+    color: #f2f3f7;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.stat-card:nth-child(1) .stat-icon {
+    animation-delay: 0s;
+}
+
+.stat-card:nth-child(2) .stat-icon {
+    animation-delay: 0.5s;
+}
+
+.stat-card:nth-child(3) .stat-icon {
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+/* Courses Section Specific Styles */
+        .courses-section {
+            padding: 2rem;
+        }
+
+        .courses-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .courses-grid {
+            display: flex;
+            justify-content: space-around;
+            padding: 1.5rem;
+            flex-wrap: wrap;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .course-card1, .course-card2,.course-card3, .course-card4, .course-card5, .course-card6{
+            background: white;
+            border-radius: 15px;
+            width: 30%;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-position: center;
+            background-size: cover;
+            background-blend-mode: multiply;
+            background-color: rgba(0, 0, 0, 0.726);
+        }
+
+        .course-card1:hover, .course-card2:hover,.course-card3:hover,.course-card4:hover,.course-card5:hover,.course-card6:hover{
+            transform: translateY(-15px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .course-image {
+            position: relative;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .course-card1{
+            background-image: url(/img/digimark2.jpg);
+        }
+
+        .course-card2{
+            background-image: url(/img/digimark1.jpg);
+        }
+        .course-card3{
+            background-image: url(img/digimark3.jpg);
+        }
+        .course-card4{
+            background-image: url(img/education.jpg);
+        }
+        .course-card5{
+            background-image: url(img/socials\ 1.jpg);
+        }
+        .course-card6{
+            background-image: url(img/google.jpg);
+        }
+        .course-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .badge-limited {
+            background-color: #ff9800;
+            color: white;
+        }
+
+        .badge-scholarship {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .badge-sponsored {
+            background-color: #1976D2;
+            color: white;
+        }
+
+        .course-content {
+            padding: 1.2rem;
+        }
+
+        .course-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.904);
+            margin-bottom: 0.5rem;
+        }
+
+        .course-description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.76);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .course-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2196f3;
+            margin-bottom: 0.8rem;
+        }
+
+        .payment-options {
+            font-size: 1rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-options div {
+            margin-bottom: 3px;
+        }
+
+        .discount-price {
+            /* color: #f2f3f7; */
+            color: #1976D2;
+            /*color: #ff7300*/
+        }
+
+        .course-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .star1 {
+            color: #ffc107;
+        }
+
+        .view-details-btn {
+            width: 90%;
+            padding: 0.8rem;
+            background-color: #1976D2;
+            position: absolute;
+            bottom: 2%;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-details-btn:hover {
+            background-color: #1976d2;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .courses-grid {
+                display: block;
+                width: 100%;
+            }
+            .course-card1, .course-card2, .course-card3, .course-card4, .course-card5, .course-card6{
+                width: 100%;
+            }
+        }
+
+/* Responsive */
+@media (max-width: 1024px) {
+    /* On mobile, sidebar is hidden, so take full width */
+    .stats-section {
+        margin: 40px 20px;
+        max-width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-section {
+        padding: 60px 20px;
+        margin: 20px;
+        max-width: calc(100% - 40px);
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .stat-icon {
+        font-size: 2.5rem;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+    }
+}

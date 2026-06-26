@@ -1,0 +1,110 @@
+/* GENERAL STYLING */
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+/* Body style */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f3f7;
+}
+
+/* Sidebar */
+aside {
+    width: 25%;
+    background-color: #3B82F6;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Header inside sidebar */
+aside header {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* increased space between sections */
+}
+
+/* Top nav (logo/title) */
+aside header nav:first-of-type a {
+    text-decoration: none;
+    font-size: 3rem; /* bigger logo font size */
+    font-weight: bold;
+    color: white;
+}
+
+/* Navigation links */
+aside header nav:nth-of-type(2) {
+    list-style: none;
+    padding: 1x;
+    height: 60vh;
+    display: flex;
+    align-content: space-around;
+    align-items: left;
+    flex-direction: column;
+    gap: 40px; /* more vertical space between links */
+}
+
+aside header nav:nth-of-type(2) li a {
+    text-decoration: none;
+    color: white;
+    padding: 12px 15px; /* increased padding for taller links */
+    border-radius:15px;
+    width: 300px;
+    border: none;
+    transition: background-color 0.3s, left 0.3s, border 0.3s, color 0.3s;
+    font-size: 1.3rem; /* slightly bigger text for nav items */
+    position: relative;
+    left: 0;
+}
+
+aside header nav:nth-of-type(2) li a:hover {
+    background-color: rgba(255, 255, 255, 0.534);
+    border: 3px solid #f2f3f7;
+    left: 40px;
+    color: #558de7;
+}
+
+/* Footer/extra div */
+aside header div {
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+aside nav li a span i{
+    margin-right: 15px;
+    font-size: 1.3rem;
+}
+
+aside header div p{
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: bold;
+}
+aside header div a {
+    color: white;
+    text-decoration: underline;
+    margin-left: 5px;
+}
+
+aside header div input[type="checkbox"] {
+    margin-right: 5px;
+    margin-top: 25px;
+    font-size: 1rem;
+}
+
+/* Push main content to the right */
+main {
+    margin-left: 25%;
+    padding: 20px;
+}
