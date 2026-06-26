@@ -28,14 +28,7 @@ body {
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-/* body {
-    margin: 0;
-    margin-left: 25%;
-    width: 75%;
-    font-family: Arial, sans-serif;
-    background-color: #f2f3f7;
-    overflow-x: hidden;
-} */
+
 
 /* Mobile Header (Logo + Menu Toggle) */
 .mobile-header {
@@ -378,7 +371,7 @@ aside header nav:nth-of-type(3) input[type="checkbox"] {
     position: relative;
     animation: heroImage 20s ease-out infinite;
     border-radius: 55px;
-    background-image: url(/img/digimark2.jpg);
+    background-image: url(../img/digimark2.jpg);
     background-repeat: no-repeat;
     background-position:center;
     background-size: cover;
@@ -388,35 +381,36 @@ aside header nav:nth-of-type(3) input[type="checkbox"] {
 
 @keyframes heroImage {
     0%{
-        background-image: url(img/digimark2.jpg);
+        background-image: url(..img/digimark2.jpg);
         background-repeat: no-repeat;
         background-position:center;
         background-size: cover;
     }
     25%{
-        background-image: url(img/digimark1.jpg);
+        background-image: url(..img/digimark1.jpg);
         background-repeat: no-repeat;
         background-position:center;
         background-size: cover;
     }
     50%{
-        background-image: url(img/education.jpg);
+        background-image: url(..img/education.jpg);
         background-repeat: no-repeat;
         background-position:center;
         background-size: cover;
     }
     75%{
-        background-image: url(img/social\ media\ marketing.jpg);
+        background-image: url(..img/social\ media\ marketing.jpg);
         background-repeat: no-repeat;
         background-position:center;
         background-size: cover;
     }
     100%{
-        background-image: url(img/digimark2.jpg);
+        background-image: url(..img/digimark2.jpg);
         background-repeat: no-repeat;
         background-position: center;
     }
 }
+
 
 .image-container {
     position: relative;
@@ -766,23 +760,23 @@ aside header nav:nth-of-type(3) input[type="checkbox"] {
         }
 
         .course-card1{
-            background-image: url(/img/digimark2.jpg);
+            background-image: url(../img/digimark2.jpg);
         }
 
         .course-card2{
-            background-image: url(/img/digimark1.jpg);
+            background-image: url(../img/digimark1.jpg);
         }
         .course-card3{
-            background-image: url(img/digimark3.jpg);
+            background-image: url(..img/digimark3.jpg);
         }
         .course-card4{
-            background-image: url(img/education.jpg);
+            background-image: url(..img/education.jpg);
         }
         .course-card5{
-            background-image: url(img/socials\ 1.jpg);
+            background-image: url(..img/socials\ 1.jpg);
         }
         .course-card6{
-            background-image: url(img/google.jpg);
+            background-image: url(..img/google.jpg);
         }
         .course-badge {
             position: absolute;
